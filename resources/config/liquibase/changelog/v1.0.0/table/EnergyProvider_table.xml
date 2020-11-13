@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="db-create-EnergyProvider_tables-v1.0.0" author="tad">
+
+        <!--energy_provider-->
+        <createTable tableName="energy_provider">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="purchase_rate" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="ps" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="delta" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="purchase_auto_conso_rate" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_low_hours_low_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_low_hours_high_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_peak_hours_low_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_peak_hours_high_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_high_hours_low_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sell_high_hours_high_season" type="double">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--high_hours-->
+        <createTable tableName="high_hours">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hour" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--low_hours-->
+        <createTable tableName="low_hours">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hour" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--months_high_season-->
+        <createTable tableName="months_high_season">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="month" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--months_off_peak-->
+        <createTable tableName="months_off_peak">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="month" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--peak_hours-->
+        <createTable tableName="peak_hours">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hour" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--invoice-->
+        <createTable tableName="invoice">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flux_topology_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="month" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="year" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="acc_amount" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_update_invoice" type="double">
+                <constraints nullable="true"/>
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

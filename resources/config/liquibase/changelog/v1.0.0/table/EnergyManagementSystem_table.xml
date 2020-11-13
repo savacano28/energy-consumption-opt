@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="db-create-EnergyManagementSystem_tables-v1.0.0" author="tad">
+
+        <!--energy_management_system-->
+        <createTable tableName="energy_management_system">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--energy_site-->
+        <createTable tableName="energy_site">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="energy_management_system_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--measurement_source-->
+        <createTable tableName="measurement_source">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="flux_node_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="source_type" type="${fieldNameShort}">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--parameter-->
+        <createTable tableName="parameter">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="flux_node_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="measurement_source_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="source_descriptor_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="parameter_name" type="${fieldXLong}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameter_label" type="${fieldXLong}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameter_type" type="${fieldXLong}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameter_value" type="${fieldXLong}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="parameter_unit" type="${fieldXLong}">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

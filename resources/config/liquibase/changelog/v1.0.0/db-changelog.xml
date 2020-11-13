@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!--
+        Initial schema tables created by jhipster.
+    -->
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/Initial_schema_table.xml" relativeToChangelogFile="false"/>
+
+    <!--
+        synergreen domain tables.
+    -->
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/Battery_table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/EnergyManagementSystem_table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/EnergyProvider_table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/SourceDescriptor_table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/table/Topology_table.xml" relativeToChangelogFile="false"/>
+
+    <!--
+        data files.
+    -->
+
+    <include file="classpath:config/liquibase/changelog/v1.0.0/db-load-data.xml" relativeToChangelogFile="false"/>
+
+    <!--
+        relations between tables (foreign keys).
+        Best creating after all tables
+    -->
+    <include file="classpath:config/liquibase/changelog/v1.0.0/relation/Initial_schema_relation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/relation/Battery_relation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/relation/EnergyManagementSystem_relation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/relation/EnergyProvider_relation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/v1.0.0/relation/Topology_relation.xml" relativeToChangelogFile="false"/>
+
+</databaseChangeLog>

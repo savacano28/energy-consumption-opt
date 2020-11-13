@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="db-create-Battery_tables-v1.0.0" author="tad">
+
+        <!--battery_management_instruction-->
+        <createTable tableName="battery_management_instruction">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="instant" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="p_prod_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delta_prod_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lambda_prod_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="p_conso_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delta_conso_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lambda_conso_global" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="p_bat" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="soc" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="battery_management_run_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--battery_management_run-->
+        <createTable tableName="battery_management_run">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="client_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="battery_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="end" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="error" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="process_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="battery_manager_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--battery_manager-->
+        <createTable tableName="battery_manager">
+            <column name="id" type="bigint">
+                <constraints  primaryKey="true"  nullable="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

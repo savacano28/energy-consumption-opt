@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity EnergySite.
+    -->
+    <changeSet id="db-create-EnergyManagementSystem_relation-v1.0.0" author="tad">
+
+        <addForeignKeyConstraint baseColumnNames="flux_node_id"
+                                 baseTableName="measurement_source"
+                                 constraintName="fk_measurement_source_flux_node_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_node"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_management_system_id"
+                                 baseTableName="energy_site"
+                                 constraintName="fk_energy_site_energy_management_system_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_management_system"/>
+
+        <addForeignKeyConstraint baseColumnNames="flux_node_id"
+                                 baseTableName="parameter"
+                                 constraintName="fk_parameter_flux_node_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_node"/>
+
+        <addForeignKeyConstraint baseColumnNames="measurement_source_id"
+                                 baseTableName="parameter"
+                                 constraintName="fk_parameter_measurement_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measurement_source"/>
+
+        <addForeignKeyConstraint baseColumnNames="source_descriptor_id"
+                                 baseTableName="parameter"
+                                 constraintName="fk_parameter_source_descriptor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="source_descriptor"/>
+
+    </changeSet>
+</databaseChangeLog>

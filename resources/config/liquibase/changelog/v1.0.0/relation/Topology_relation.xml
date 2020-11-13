@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="db-create-Topology_relation-v1.0.0" author="tad">
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="flux_node"
+                                 constraintName="fk_flux_node_parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_node"/>
+
+        <addForeignKeyConstraint baseColumnNames="flux_topology_id"
+                                 baseTableName="flux_node"
+                                 constraintName="fk_flux_node_flux_topology_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_topology"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="flux_node"
+                                 constraintName="fk_flux_node_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_site_id"
+                                 baseTableName="flux_topology"
+                                 constraintName="fk_flux_topology_energy_site_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_site"/>
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="flux_topology"
+                                 constraintName="fk_flux_topology_parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_topology"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="flux_topology"
+                                 constraintName="fk_flux_topology_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/properties.xml" relativeToChangelogFile="false"/>
+
+    <!-- Base Synergreen V1.0.0 -->
+    <include file="classpath:config/liquibase/changelog/v1.0.0/db-changelog.xml" relativeToChangelogFile="false"/>
+
+</databaseChangeLog>

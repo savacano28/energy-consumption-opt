@@ -1,0 +1,5 @@
+id;name;optimization;energy_site_id;energy_provider_id;parent_id;img
+34;Site Complet;false;41;71;null;site_complet-20190516171103756.png
+35;Cryolite;false;41;72;null;cryolite-20190516171229725.png
+36;Cryolite Battery Management;false;41;73;null;cryolite-20190516171238397.png
+

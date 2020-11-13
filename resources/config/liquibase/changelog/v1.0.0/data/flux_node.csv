@@ -1,0 +1,12 @@
+id;flux_node_name;jhi_type;measurement_source_id;parent_id;flux_node_type;flux_topology_id;energy_provider_id
+26;Autoconsommation;GROUP;null;null;FluxGroup;34;71
+28;Laurite;GROUP;null;26;FluxGroup;null;null
+11;Laurite-TGBT;CONSUMER;61;28;EnergyElement;null;null
+12;Laurite-PV;PRODUCER;62;28;EnergyElement;null;null
+13;Cryolite-TGBT;CONSUMER;63;26;EnergyElement;null;null
+14;Cryolite - PV;PRODUCER;64;null;EnergyElement;34;71
+16;Cryolite-TGBT;CONSUMER;66;null;EnergyElement;35;71
+17;Cryolite - PV;PRODUCER;67;null;EnergyElement;35;72
+18;Battery;BATTERY;68;null;EnergyElement;36;73
+19;Cryolite-TGBT;CONSUMER;66;null;EnergyElement;36;73
+20;Cryolite - PV;PRODUCER;67;null;EnergyElement;36;73

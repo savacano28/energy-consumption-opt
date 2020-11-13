@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="db-create-Topology_tables-v1.0.0" author="tad">
+
+        <!--flux_topology-->
+        <createTable tableName="flux_topology">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="optimization" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy_site_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="img" type="${fieldImg}">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--flux_node-->
+        <createTable tableName="flux_node">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="flux_node_name" type="${fieldNameLong}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="jhi_type" type="${fieldCode}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="measurement_source_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="parent_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="flux_node_type" type="${fieldText}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="flux_topology_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="energy_provider_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

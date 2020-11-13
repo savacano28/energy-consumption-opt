@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="db-create-EnergyProvider_relation-v1.0.0" author="tad">
+
+        <addPrimaryKey constraintName="pk_invoice"
+                       tableName="invoice"
+                       columnNames="flux_topology_id,month,year"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="high_hours"
+                                 constraintName="fk_high_hours_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="low_hours"
+                                 constraintName="fk_low_hours_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="months_high_season"
+                                 constraintName="fk_months_high_season_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="months_off_peak"
+                                 constraintName="fk_months_off_peak_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="energy_provider_id"
+                                 baseTableName="peak_hours"
+                                 constraintName="fk_peak_hours_energy_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="energy_provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="flux_topology_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_flux_topology_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_topology"/>
+
+    </changeSet>
+</databaseChangeLog>

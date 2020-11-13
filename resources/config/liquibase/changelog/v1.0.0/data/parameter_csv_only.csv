@@ -1,0 +1,15 @@
+id;flux_node_id;measurement_source_id;source_descriptor_id;parameter_name;parameter_label;parameter_type;parameter_value;parameter_unit
+13;NULL;61;NULL;file;file;STRING;historian-CRY-consumption.csv;NULL
+14;NULL;61;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+15;NULL;62;NULL;file;file;STRING;historian-CRY-consumption.csv;NULL
+16;NULL;62;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+17;NULL;63;NULL;file;file;STRING;historian-CRY-consumption.csv;NULL
+18;NULL;63;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+19;NULL;64;NULL;file;file;STRING;historian-CRY-production.csv;NULL
+20;NULL;64;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+23;NULL;66;NULL;file;file;STRING;historian-CRY-production.csv;NULL
+24;NULL;66;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+25;NULL;67;NULL;file;file;STRING;historian-CRY-production.csv;NULL
+26;NULL;67;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL
+27;NULL;68;NULL;file;file;STRING;historian-CRY-production.csv;NULL
+28;NULL;68;NULL;offsetInSecond;offsetInSecond;STRING;31536000;NULL

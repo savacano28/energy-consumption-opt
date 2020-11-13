@@ -1,0 +1,8 @@
+{
+	"runId":123456789,
+	"status":"terminated",
+	"error":"Input data format invalid.",
+	"start":"2019-04-01 23:00:00",
+	"end":"2019-04-01 23:00:01",
+	"result":[]
+}

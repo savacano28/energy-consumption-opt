@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="db-load-jhipster-data-v1.0.0" author="jhipster">
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/users.csv" separator=";" tableName="jhi_user">
+            <column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+        <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/authorities.csv" separator=";" tableName="jhi_authority"/>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/users_authorities.csv" separator=";" tableName="jhi_user_authority"/>
+    </changeSet>
+
+    <changeSet id="db-load-main-data-v1.0.0" author="tad">
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/energy_management_system.csv" separator=";" tableName="energy_management_system"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/energy_site.csv" separator=";" tableName="energy_site"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/energy_provider.csv" separator=";" tableName="energy_provider"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/flux_topology.csv" separator=";" tableName="flux_topology"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/flux_node.csv" separator=";" tableName="flux_node"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/high_hours.csv" separator=";" tableName="high_hours"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/low_hours.csv" separator=";" tableName="low_hours"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/peak_hours.csv" separator=";" tableName="peak_hours"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/months_high_season.csv" separator=";" tableName="months_high_season"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/months_off_peak.csv" separator=";" tableName="months_off_peak"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/source_descriptor.csv" separator=";" tableName="source_descriptor"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/invoice.csv" separator=";" tableName="invoice"></loadData>
+    </changeSet>
+
+    <changeSet id="db-load-measurement-source-data-ifpen-v1.0.0" author="tad" context="!demo">
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/measurement_source.csv" separator=";" tableName="measurement_source"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/parameter.csv" separator=";" tableName="parameter"></loadData>
+    </changeSet>
+
+    <changeSet id="db-load-measurement-source-data-demo-v1.0.0demo" author="tad" context="demo">
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/measurement_source_csv_only.csv" separator=";" tableName="measurement_source"></loadData>
+        <loadData encoding="UTF-8" file="config/liquibase/changelog/v1.0.0/data/parameter_csv_only.csv" separator=";" tableName="parameter"></loadData>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,4 @@
+id;name;purchase_rate;purchase_auto_conso_rate;ps;delta;sell_low_hours_low_season;sell_low_hours_high_season;sell_peak_hours_low_season;sell_peak_hours_high_season;sell_high_hours_low_season;sell_high_hours_high_season
+71;EDF;0.05;0.01;3600;0.2519;0.095;0.095;0.11;0.11;0.1;0.1
+72;EnergyProp;0.05;0.01;3600;0.2519;0.095;0.095;0.11;0.11;0.1;0.1
+73;EDF;0.05;0.01;13;0.2519;0.095;0.095;0.11;0.11;0.1;0.1

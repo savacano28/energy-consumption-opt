@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BatteryManagementRun.
+    -->
+    <changeSet id="db-create-battery_relation-v1.0.0" author="tad">
+
+        <addForeignKeyConstraint baseColumnNames="battery_management_run_id"
+                                 baseTableName="battery_management_instruction"
+                                 constraintName="fk_battery_management_instruction_battery_management_run_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="battery_management_run"/>
+
+        <addForeignKeyConstraint baseColumnNames="battery_id"
+                                 baseTableName="battery_management_run"
+                                 constraintName="fk_battery_management_run_flux_node_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_node"/>
+
+        <addForeignKeyConstraint baseColumnNames="battery_manager_id"
+                                 baseTableName="battery_management_run"
+                                 constraintName="fk_battery_management_run_battery_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="battery_manager"/>
+
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="battery_manager"
+                                 constraintName="fk_flux_topology_battery_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flux_topology"/>
+
+    </changeSet>
+</databaseChangeLog>
