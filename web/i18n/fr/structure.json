@@ -1,0 +1,16 @@
+{
+    "synergreenApp": {
+        "structure": {
+            "home": {
+                "title": "Structure",
+                "createLabel": "Créer un nouveau Structure",
+                "createOrEditLabel": "Créer ou éditer un structure",
+                "search": "Recherche pour Structure"
+            },
+            "name": "Name",
+            "energySite": "Energy Site",
+            "energyElement": "Energy Element",
+            "type": "Type"
+        }
+    }
+}

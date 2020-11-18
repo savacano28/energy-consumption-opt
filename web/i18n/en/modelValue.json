@@ -1,0 +1,24 @@
+{
+    "synergreenApp": {
+        "modelValue": {
+            "home": {
+                "title": "Model Values",
+                "createLabel": "Create a new Model Value",
+                "createOrEditLabel": "Create or edit a Model Value",
+                "search": "Search for Model Value"
+            },
+            "created": "A new Model Value is created with identifier {{ param }}",
+            "updated": "A Model Value is updated with identifier {{ param }}",
+            "deleted": "A Model Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Model Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Model Value"
+            },
+            "stringValue": "String Value",
+            "doubleValue": "Double Value",
+            "abstractSource": "Abstract Source"
+        }
+    }
+}

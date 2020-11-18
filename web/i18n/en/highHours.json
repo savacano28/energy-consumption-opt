@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "highHours": {
+            "home": {
+                "title": "High Hours",
+                "createLabel": "Create a new High Hours",
+                "createOrEditLabel": "Create or edit a High Hours",
+                "search": "Search for High Hours"
+            },
+            "created": "A new High Hours is created with identifier {{ param }}",
+            "updated": "A High Hours is updated with identifier {{ param }}",
+            "deleted": "A High Hours is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete High Hours {{ id }}?"
+            },
+            "detail": {
+                "title": "High Hours"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

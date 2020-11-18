@@ -1,0 +1,30 @@
+{
+    "synergreenApp": {
+        "balanceData": {
+            "home": {
+                "title": "Balance Data",
+                "createLabel": "Create a new Balance Data",
+                "createOrEditLabel": "Create or edit a Balance Data",
+                "search": "Search for Balance Data"
+            },
+            "created": "A new Balance Data is created with identifier {{ param }}",
+            "updated": "A Balance Data is updated with identifier {{ param }}",
+            "deleted": "A Balance Data is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Balance Data {{ id }}?"
+            },
+            "detail": {
+                "title": "Balance Data"
+            },
+            "instant": "Instant",
+            "consumption": "Consumption",
+            "sellProduction": "Sell Production",
+            "autoConsProduction": "Auto Cons Production",
+            "storage": "Storage",
+            "consumptionEnergy": "Consumption Energy",
+            "sellProductionEnergy": "Sell Production Energy",
+            "autoConsProductionEnergy": "Auto Cons Production Energy",
+            "storageEnergy": "Storage Energy"
+        }
+    }
+}

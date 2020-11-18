@@ -1,0 +1,24 @@
+{
+    "synergreenApp": {
+        "fluxPeriod": {
+            "home": {
+                "title": "FluxPeriods",
+                "createLabel": "Créer un nouveau Flux Period",
+                "createOrEditLabel": "Créer ou éditer un Flux Period",
+                "search": "Recherche pour Flux Period"
+            },
+            "created": "Un nouveau Flux Period a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Flux Period avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Flux Period avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Flux Period {{ id }} ?"
+            },
+            "detail": {
+                "title": "Flux Period"
+            },
+            "start": "Start",
+            "end": "End",
+            "step": "Step"
+        }
+    }
+}

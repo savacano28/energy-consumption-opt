@@ -1,0 +1,24 @@
+{
+    "synergreenApp": {
+        "monitoring": {
+            "home": {
+                "title": "Monitoring",
+                "createLabel": "Créer un nouveau Monitoring",
+                "createOrEditLabel": "Créer ou éditer un analysis",
+                "search": "Recherche pour Monitoring"
+            },
+            "name": "Name",
+            "energySite": "Energy Site",
+            "Consommation": {
+                "purchasePrice": "Cout d'achat (hors de depassement) : ",
+                "powerConsommation": "Soit une consommation de : ",
+                "totalConsommation": "Consommation Total : "
+            },
+            "Production": {
+                "sellProduction": "Production reinjectée dans la réseaux : ",
+                "priceSellProduction": "Soit un refund de : ",
+                "totalProduction": "Production Total : "
+            }
+        }
+    }
+}

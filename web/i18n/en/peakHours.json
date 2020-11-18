@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "peakHours": {
+            "home": {
+                "title": "Peak Hours",
+                "createLabel": "Create a new Peak Hours",
+                "createOrEditLabel": "Create or edit a Peak Hours",
+                "search": "Search for Peak Hours"
+            },
+            "created": "A new Peak Hours is created with identifier {{ param }}",
+            "updated": "A Peak Hours is updated with identifier {{ param }}",
+            "deleted": "A Peak Hours is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Peak Hours {{ id }}?"
+            },
+            "detail": {
+                "title": "Peak Hours"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

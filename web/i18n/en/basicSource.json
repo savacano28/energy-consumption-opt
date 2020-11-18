@@ -1,0 +1,21 @@
+{
+    "synergreenApp": {
+        "basicSource": {
+            "home": {
+                "title": "Basic Sources",
+                "createLabel": "Create a new Basic Source",
+                "createOrEditLabel": "Create or edit a Basic Source",
+                "search": "Search for Basic Source"
+            },
+            "created": "A new Basic Source is created with identifier {{ param }}",
+            "updated": "A Basic Source is updated with identifier {{ param }}",
+            "deleted": "A Basic Source is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Basic Source {{ id }}?"
+            },
+            "detail": {
+                "title": "Basic Source"
+            }
+        }
+    }
+}

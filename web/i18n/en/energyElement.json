@@ -1,0 +1,25 @@
+{
+    "synergreenApp": {
+        "energyElement": {
+            "home": {
+                "title": "Energy Elements",
+                "createLabel": "Create a new Energy Element",
+                "createOrEditLabel": "Create or edit a Energy Element",
+                "search": "Search for Energy Element"
+            },
+            "created": "A new Energy Element is created with identifier {{ param }}",
+            "updated": "A Energy Element is updated with identifier {{ param }}",
+            "deleted": "A Energy Element is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Energy Element {{ id }}?"
+            },
+            "detail": {
+                "title": "Energy Element"
+            },
+            "elementName": "Element Name",
+            "type": "Type",
+            "measurementSource": "Measurement Source",
+            "fluxGroup": "Flux Group"
+        }
+    }
+}

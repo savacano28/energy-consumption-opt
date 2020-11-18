@@ -1,0 +1,19 @@
+{
+    "synergreenApp": {
+        "battery-management": {
+            "home": {
+                "title": "BatteryManagement",
+                "createLabel": "Créer un nouveau BatteryManagement",
+                "createOrEditLabel": "Créer ou éditer un analysis",
+                "search": "Recherche pour BatteryManagement"
+            },
+            "name": "Name",
+            "energySite": "Energy Site",
+            "pilotables": "Elements for Piloting",
+            "battery-management": "BatteryManagement",
+            "load": "En charge",
+            "storedEnergy": "Energy Stockée",
+            "executeBatteryManagement": "Lancer le programme de battery-management"
+        }
+    }
+}

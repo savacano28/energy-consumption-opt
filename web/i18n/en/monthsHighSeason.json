@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "monthsHighSeason": {
+            "home": {
+                "title": "Months High Seasons",
+                "createLabel": "Create a new Months High Season",
+                "createOrEditLabel": "Create or edit a Months High Season",
+                "search": "Search for Months High Season"
+            },
+            "created": "A new Months High Season is created with identifier {{ param }}",
+            "updated": "A Months High Season is updated with identifier {{ param }}",
+            "deleted": "A Months High Season is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Months High Season {{ id }}?"
+            },
+            "detail": {
+                "title": "Months High Season"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

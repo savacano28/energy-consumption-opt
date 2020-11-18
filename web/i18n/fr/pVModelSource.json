@@ -1,0 +1,21 @@
+{
+    "synergreenApp": {
+        "pVModelSource": {
+            "home": {
+                "title": "PVModelSources",
+                "createLabel": "Créer un nouveau PV Model Source",
+                "createOrEditLabel": "Créer ou éditer un PV Model Source",
+                "search": "Recherche pour PV Model Source"
+            },
+            "created": "Un nouveau PV Model Source a été créé avec l'identifiant {{ param }}",
+            "updated": "Le PV Model Source avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le PV Model Source avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le PV Model Source {{ id }} ?"
+            },
+            "detail": {
+                "title": "PV Model Source"
+            }
+        }
+    }
+}

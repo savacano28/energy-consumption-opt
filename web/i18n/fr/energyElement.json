@@ -1,0 +1,25 @@
+{
+    "synergreenApp": {
+        "energyElement": {
+            "home": {
+                "title": "EnergyElements",
+                "createLabel": "Créer un nouveau Energy Element",
+                "createOrEditLabel": "Créer ou éditer un Energy Element",
+                "search": "Recherche pour Energy Element"
+            },
+            "created": "Un nouveau Energy Element a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Energy Element avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Energy Element avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Energy Element {{ id }} ?"
+            },
+            "detail": {
+                "title": "Energy Element"
+            },
+            "elementName": "Element Name",
+            "type": "Type",
+            "measurementSource": "Measurement Source",
+            "fluxGroup": "Flux Group"
+        }
+    }
+}

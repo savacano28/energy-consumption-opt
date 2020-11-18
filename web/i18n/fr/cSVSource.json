@@ -1,0 +1,21 @@
+{
+    "synergreenApp": {
+        "cSVSource": {
+            "home": {
+                "title": "CSVSources",
+                "createLabel": "Créer un nouveau CSV Source",
+                "createOrEditLabel": "Créer ou éditer un CSV Source",
+                "search": "Recherche pour CSV Source"
+            },
+            "created": "Un nouveau CSV Source a été créé avec l'identifiant {{ param }}",
+            "updated": "Le CSV Source avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le CSV Source avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le CSV Source {{ id }} ?"
+            },
+            "detail": {
+                "title": "CSV Source"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "synergreenApp": {
+        "ModelParameterType": {
+            "null": "",
+            "DOUBLE": "DOUBLE",
+            "STRING": "STRING",
+            "URL": "URL",
+            "FILE": "FILE",
+            "INTEGER": "INTEGER",
+            "BOOLEAN": "BOOLEAN",
+            "FLUXPERIOD": "FLUXPERIOD"
+        }
+    }
+}

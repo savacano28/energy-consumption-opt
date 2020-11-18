@@ -1,0 +1,23 @@
+{
+    "synergreenApp": {
+        "energyManagementSystem": {
+            "home": {
+                "title": "EnergyManagementSystems",
+                "createLabel": "Créer un nouveau Energy Management System",
+                "createOrEditLabel": "Créer ou éditer un Energy Management System",
+                "search": "Recherche pour Energy Management System"
+            },
+            "created": "Un nouveau Energy Management System a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Energy Management System avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Energy Management System avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Energy Management System {{ id }} ?"
+            },
+            "detail": {
+                "title": "Energy Management System"
+            },
+            "name": "Name",
+            "energySite": "Energy Site"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "monthsOffPeak": {
+            "home": {
+                "title": "MonthsOffPeaks",
+                "createLabel": "Créer un nouveau Months Off Peak",
+                "createOrEditLabel": "Créer ou éditer un Months Off Peak",
+                "search": "Recherche pour Months Off Peak"
+            },
+            "created": "Un nouveau Months Off Peak a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Months Off Peak avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Months Off Peak avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Months Off Peak {{ id }} ?"
+            },
+            "detail": {
+                "title": "Months Off Peak"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

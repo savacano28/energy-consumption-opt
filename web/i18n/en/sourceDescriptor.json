@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "sourceDescriptor": {
+            "home": {
+                "title": "Source Descriptors",
+                "createLabel": "Create a new Source Descriptor",
+                "createOrEditLabel": "Create or edit a Source Descriptor",
+                "search": "Search for Source Descriptor"
+            },
+            "created": "A new Source Descriptor is created with identifier {{ param }}",
+            "updated": "A Source Descriptor is updated with identifier {{ param }}",
+            "deleted": "A Source Descriptor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Source Descriptor {{ id }}?"
+            },
+            "detail": {
+                "title": "Source Descriptor"
+            },
+            "energyElement": "Energy Element"
+        }
+    }
+}

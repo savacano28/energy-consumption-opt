@@ -1,0 +1,21 @@
+{
+    "synergreenApp": {
+        "batteryModelSource": {
+            "home": {
+                "title": "BatteryModelSources",
+                "createLabel": "Créer un nouveau Battery Model Source",
+                "createOrEditLabel": "Créer ou éditer un Battery Model Source",
+                "search": "Recherche pour Battery Model Source"
+            },
+            "created": "Un nouveau Battery Model Source a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Battery Model Source avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Battery Model Source avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Battery Model Source {{ id }} ?"
+            },
+            "detail": {
+                "title": "Battery Model Source"
+            }
+        }
+    }
+}

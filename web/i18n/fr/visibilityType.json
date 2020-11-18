@@ -1,0 +1,11 @@
+{
+    "synergreenApp": {
+        "VisibilityType": {
+            "null": "",
+            "INTERNAL": "INTERNAL",
+            "EXTERNAL": "EXTERNAL",
+            "ALL": "ALL",
+            "ADMINISTRATOR": "ADMINISTRATOR"
+        }
+    }
+}

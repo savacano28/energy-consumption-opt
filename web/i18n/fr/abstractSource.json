@@ -1,0 +1,23 @@
+{
+    "synergreenApp": {
+        "abstractSource": {
+            "home": {
+                "title": "AbstractSources",
+                "createLabel": "Créer un nouveau Abstract Source",
+                "createOrEditLabel": "Créer ou éditer un Abstract Source",
+                "search": "Recherche pour Abstract Source"
+            },
+            "created": "Un nouveau Abstract Source a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Abstract Source avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Abstract Source avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Abstract Source {{ id }} ?"
+            },
+            "detail": {
+                "title": "Abstract Source"
+            },
+            "modelParameter": "Model Parameter",
+            "modelValue": "Model Value"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "synergreenApp": {
+        "modelParameter": {
+            "home": {
+                "title": "Model Parameters",
+                "createLabel": "Create a new Model Parameter",
+                "createOrEditLabel": "Create or edit a Model Parameter",
+                "search": "Search for Model Parameter"
+            },
+            "created": "A new Model Parameter is created with identifier {{ param }}",
+            "updated": "A Model Parameter is updated with identifier {{ param }}",
+            "deleted": "A Model Parameter is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Model Parameter {{ id }}?"
+            },
+            "detail": {
+                "title": "Model Parameter"
+            },
+            "label": "Label",
+            "type": "Type",
+            "internal": "Internal",
+            "abstractSource": "Abstract Source"
+        }
+    }
+}

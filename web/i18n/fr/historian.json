@@ -1,0 +1,21 @@
+{
+    "synergreenApp": {
+        "historian": {
+            "home": {
+                "title": "Historians",
+                "createLabel": "Créer un nouveau Historian",
+                "createOrEditLabel": "Créer ou éditer un Historian",
+                "search": "Recherche pour Historian"
+            },
+            "created": "Un nouveau Historian a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Historian avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Historian avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Historian {{ id }} ?"
+            },
+            "detail": {
+                "title": "Historian"
+            }
+        }
+    }
+}

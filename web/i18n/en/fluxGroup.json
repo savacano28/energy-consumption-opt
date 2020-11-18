@@ -1,0 +1,26 @@
+{
+    "synergreenApp": {
+        "fluxGroup": {
+            "home": {
+                "title": "Flux Groups",
+                "createLabel": "Create a new Flux Group",
+                "createOrEditLabel": "Create or edit a Flux Group",
+                "search": "Search for Flux Group"
+            },
+            "created": "A new Flux Group is created with identifier {{ param }}",
+            "updated": "A Flux Group is updated with identifier {{ param }}",
+            "deleted": "A Flux Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Flux Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Flux Group"
+            },
+            "id": "ID",
+            "name": "Name",
+            "energyElement": "Energy Element",
+            "fluxTopology": "Flux Topology",
+            "nombreElements": "Number of Elements"
+        }
+    }
+}

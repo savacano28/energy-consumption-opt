@@ -1,0 +1,10 @@
+{
+    "synergreenApp": {
+        "DataType": {
+            "null": "",
+            "POWER": "POWER",
+            "ENERGY": "ENERGY",
+            "SOC": "SOC"
+        }
+    }
+}

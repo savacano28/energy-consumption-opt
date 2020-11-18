@@ -1,0 +1,30 @@
+{
+    "synergreenApp": {
+        "energyProvider": {
+            "home": {
+                "title": "EnergyProviders",
+                "createLabel": "Créer un nouveau Energy Provider",
+                "createOrEditLabel": "Créer ou éditer un Energy Provider",
+                "search": "Recherche pour Energy Provider"
+            },
+            "created": "Un nouveau Energy Provider a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Energy Provider avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Energy Provider avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Energy Provider {{ id }} ?"
+            },
+            "detail": {
+                "title": "Energy Provider"
+            },
+            "name": "Name",
+            "purchaseRate": "Purchase Rate",
+            "purchaseAutoConsoRate": "Purchase Auto Conso Rate",
+            "monthsHighSeason": "Months High Season",
+            "monthsOffPeak": "Months Off Peak",
+            "highHours": "High Hours",
+            "lowHours": "Low Hours",
+            "peakHours": "Peak Hours",
+            "fluxTopology": "Flux Topology"
+        }
+    }
+}

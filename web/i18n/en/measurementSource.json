@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "measurementSource": {
+            "home": {
+                "title": "Measurement Sources",
+                "createLabel": "Create a new Measurement Source",
+                "createOrEditLabel": "Create or edit a Measurement Source",
+                "search": "Search for Measurement Source"
+            },
+            "created": "A new Measurement Source is created with identifier {{ param }}",
+            "updated": "A Measurement Source is updated with identifier {{ param }}",
+            "deleted": "A Measurement Source is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Measurement Source {{ id }}?"
+            },
+            "detail": {
+                "title": "Measurement Source"
+            },
+            "energyElement": "Energy Element"
+        }
+    }
+}

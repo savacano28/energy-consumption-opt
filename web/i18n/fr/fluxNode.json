@@ -1,0 +1,25 @@
+{
+    "synergreenApp": {
+        "fluxNode": {
+            "home": {
+                "title": "FluxNodes",
+                "createLabel": "Créer un nouveau Flux Node",
+                "createOrEditLabel": "Créer ou éditer un Flux Node",
+                "search": "Recherche pour Flux Node"
+            },
+            "created": "Un nouveau Flux Node a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Flux Node avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Flux Node avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Flux Node {{ id }} ?"
+            },
+            "detail": {
+                "title": "Flux Node"
+            },
+            "name": "Name",
+            "type": "Type",
+            "measurementSource": "Measurement Source",
+            "fluxGroup": "Flux Group"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "synergreenApp": {
+        "optimization": {
+            "home": {
+                "title": "Optimization",
+                "createLabel": "Create a new optimization",
+                "createOrEditLabel": "Create or edit an optimization",
+                "search": "Recherche Optimization"
+            },
+            "name": "Name",
+            "energySite": "Energy Site"
+        }
+    }
+}

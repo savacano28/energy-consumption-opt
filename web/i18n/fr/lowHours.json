@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "lowHours": {
+            "home": {
+                "title": "LowHours",
+                "createLabel": "Créer un nouveau Low Hours",
+                "createOrEditLabel": "Créer ou éditer un Low Hours",
+                "search": "Recherche pour Low Hours"
+            },
+            "created": "Un nouveau Low Hours a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Low Hours avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Low Hours avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Low Hours {{ id }} ?"
+            },
+            "detail": {
+                "title": "Low Hours"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

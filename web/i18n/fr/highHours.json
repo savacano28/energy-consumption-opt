@@ -1,0 +1,22 @@
+{
+    "synergreenApp": {
+        "highHours": {
+            "home": {
+                "title": "HighHours",
+                "createLabel": "Créer un nouveau High Hours",
+                "createOrEditLabel": "Créer ou éditer un High Hours",
+                "search": "Recherche pour High Hours"
+            },
+            "created": "Un nouveau High Hours a été créé avec l'identifiant {{ param }}",
+            "updated": "Le High Hours avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le High Hours avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le High Hours {{ id }} ?"
+            },
+            "detail": {
+                "title": "High Hours"
+            },
+            "energyProvider": "Energy Provider"
+        }
+    }
+}

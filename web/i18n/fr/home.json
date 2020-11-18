@@ -1,0 +1,27 @@
+{
+    "home": {
+        "title": "Bienvenue sur Synergreen Prototype",
+        "subtitle": "Logiciel de Gestion Energétique",
+        "logged": {
+            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "question": "Si vous avez des questions à propos de JHipster :",
+        "link": {
+            "homepage": "Page d'accueil de JHipster",
+            "stackoverflow": "JHipster sur Stack Overflow",
+            "bugtracker": "JHipster bug tracker",
+            "chat": "JHipster public chat room",
+            "follow": "Suivez @java_hipster sur Twitter"
+        },
+        "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+        "github": "GitHub ",
+        "energySite": {
+            "name": "Nom",
+            "fluxTopology": "Flux Topology",
+            "energyManagementSystem": "Système de gestion de l'énergie",
+            "add": "Nouvel Site",
+            "currentSite": "Configurations actuelles du Site",
+            "notYetImp": "Pas encore mis en œuvre"
+        }
+    }
+}

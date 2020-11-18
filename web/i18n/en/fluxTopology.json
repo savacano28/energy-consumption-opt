@@ -1,0 +1,27 @@
+{
+    "synergreenApp": {
+        "fluxTopology": {
+            "home": {
+                "title": "Flux Topologies",
+                "createLabel": "Create a new Flux Topology",
+                "createOrEditLabel": "Create or edit a Flux Topology",
+                "search": "Search for Flux Topology"
+            },
+            "created": "A new Flux Topology is created with identifier {{ param }}",
+            "updated": "A Flux Topology is updated with identifier {{ param }}",
+            "deleted": "A Flux Topology is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Flux Topology {{ id }}?"
+            },
+            "detail": {
+                "title": "Flux Topology"
+            },
+            "id": "ID",
+            "name": "Name",
+            "energyProvider": "Energy Provider",
+            "fluxGroup": "Flux Group",
+            "energySite": "Energy Site",
+            "summary": "Summary of Groups"
+        }
+    }
+}

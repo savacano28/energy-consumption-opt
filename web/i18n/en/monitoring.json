@@ -1,0 +1,24 @@
+{
+    "synergreenApp": {
+        "monitoring": {
+            "home": {
+                "title": "Monitoring",
+                "createLabel": "Create a new Monitoring",
+                "createOrEditLabel": "Create or edit a monitoring",
+                "search": "Recherche monitoring"
+            },
+            "name": "Name",
+            "energySite": "Energy Site",
+            "Consommation": {
+                "purchasePrice": "Purchase price : ",
+                "powerConsommation": "Power consommation : ",
+                "totalConsommation": "Total consommation : "
+            },
+            "Production": {
+                "sellProduction": "Sell production : ",
+                "priceSellProduction": "Price sell production : ",
+                "totalProduction": "Total production : "
+            }
+        }
+    }
+}

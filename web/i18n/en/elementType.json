@@ -1,0 +1,12 @@
+{
+    "synergreenApp": {
+        "ElementType": {
+            "null": "",
+            "CONSUMER": "CONSUMER",
+            "BATTERY": "BATTERY",
+            "SELL_PRODUCER": "SELL_PRODUCER",
+            "AUTOCONSUMPTION_PRODUCER": "AUTOCONSUMPTION_PRODUCER",
+            "GROUP": "GROUP"
+        }
+    }
+}

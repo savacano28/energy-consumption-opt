@@ -1,0 +1,30 @@
+{
+    "synergreenApp": {
+        "energySite": {
+            "home": {
+                "title": "EnergySites",
+                "createLabel": "Créer un nouveau Energy Site",
+                "createOrEditLabel": "Créer ou éditer un Energy Site",
+                "search": "Recherche pour Energy Site"
+            },
+            "created": "Un nouveau Energy Site a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Energy Site avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Energy Site avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Energy Site {{ id }} ?"
+            },
+            "detail": {
+                "title": "Energy Site"
+            },
+            "name": "Name",
+            "id": "ID",
+            "fluxTopology": "Flux Topology",
+            "energyManagementSystem": "Energy Management System",
+            "n° topologies": "Nombre des Topologies liées",
+            "configurations": "Configurations",
+            "summary": "Information général",
+            "loadingPrice": "Calculs en cours...",
+            "summarySite": "Résumé du Site"
+        }
+    }
+}
