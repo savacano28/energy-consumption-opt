@@ -1,0 +1,69 @@
+<div ng-cloak>
+    <div class="panel">
+        <div class="col-md-12">
+            <h1 data-translate="home.title">Welcome to Synergreen</h1>
+            <p class="lead" data-translate="home.subtitle">Software Power Manager</p>
+
+            <div ng-switch="vm.isAuthenticated()">
+                <div class="alert alert-success" ng-hide="vm.loginAlertMessage" ng-switch-when="true"
+                     data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
+                    You are logged in as user "{{vm.account.login}}".
+                </div>
+
+                <div class="alert alert-warning" ng-switch-when="false"
+                     data-translate="global.messages.info.authenticated" translate-compile>
+                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the
+                    default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user"
+                    and password="user").
+                </div>
+
+                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register"
+                     translate-compile>
+                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
+                </div>
+            </div>
+
+            <div ng-show="vm.isAuthenticated()">
+                <!--<div class="col-md-12 text-center">
+                    <img class="img-responsive center" src="../../../content/images/logo-synergreeen.png"
+                         alt="Synergreen"/>
+                </div>-->
+                <div class="row ">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="row text-Center widget-title" ng-show="!vm.selected">
+                            <span><span data-translate="home.energySite.currentSite"></span></span>
+                            <button uib-popover="Not implemented yet!"
+                                    popover-placement="bottom"
+                                    class="btn btn-success pull-right">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span data-translate="home.energySite.add"></span>
+                            </button>
+                        </div>
+                        <hr/>
+                        <div class="table-responsive">
+                            <table class="jh-table table table-striped">
+                                <tbody>
+                                <tr ng-repeat="energySite in vm.energySites track by energySite.id">
+                                    <td><label>{{energySite.name}}</label></td>
+                                    <td class="text-right">
+                                        <div class="btn-group flex-btn-group-container">
+                                            <button type="submit"
+                                                    ui-sref="energy-site-detail({id:energySite.id})"
+                                                    class="btn btn-info btn-sm">
+                                                <span class="glyphicon glyphicon-eye-open"></span>
+                                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
