@@ -1,0 +1,426 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
+                    <img class="img center" src="../../../content/images/logo-icon.png" alt="logo"/>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="{active: vm.$state.includes('energy-site-detail') ||  vm.$state.includes('home')}">
+                        <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <span class="hidden-sm" data-translate="global.menu.home">Home</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                    <li ng-class="{active: vm.$state.includes('monitoring')}">
+                        <a ui-sref="monitoring" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-dashboard"></span>
+                            <span class="hidden-sm" data-translate="global.menu.entities.monitoring">
+                                Monitoring
+                            </span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: vm.$state.includes('optimization')}">
+                        <a ui-sref="optimization" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-flash"></span>
+                            <span class="hidden-sm" data-translate="global.menu.entities.optimization">
+                                Optimization   </span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: vm.$state.includes('battery-management')}">
+                        <a ui-sref="battery-management" ng-click="vm.collapseNavbar()">
+                            <span class="glyphicon glyphicon-pawn"></span>
+                            <span class="hidden-sm" data-translate="global.menu.entities.battery-management">
+                                BatteryManagement
+                            </span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true"
+                        has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                        <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm" data-translate="global.menu.entities.main">
+                                Entities
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                        </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ui-sref-active="active">
+                                <a ui-sref="energy-site" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.energySite">Energy Site</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="energy-management-system" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.energyManagementSystem">Energy Management System</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="energy-provider" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.energyProvider">Energy Provider</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="flux-topology" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.fluxTopology">Flux Topology</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="flux-node" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.fluxNode">Flux Node</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="flux-group" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.fluxGroup">Flux Group</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="energy-element" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.energyElement">Energy Element</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="measurement-source" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span
+                                        data-translate="global.menu.entities.measurementSource">Measurement Source</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="source-descriptor" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span
+                                        data-translate="global.menu.entities.sourceDescriptor">Source Descriptor</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
+                        <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="hidden-sm" data-translate="global.menu.account.main">
+                                Account
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                        </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ui-sref-active="active" ng-switch-when="true">
+                                <a ui-sref="settings" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                                    <span data-translate="global.menu.account.settings">Settings</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active" ng-switch-when="true">
+                                <a ui-sref="password" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-lock"></span>&nbsp;
+                                    <span data-translate="global.menu.account.password">Password</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active" ng-switch-when="true">
+                                <a href="" ng-click="vm.logout()" id="logout">
+                                    <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                                    <span data-translate="global.menu.account.logout">Sign out</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active" ng-switch-when="false">
+                                <a href="" ng-click="vm.login()" id="login">
+                                    <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                                    <span data-translate="global.menu.account.login">Sign in</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active" ng-switch-when="false">
+                                <a ui-sref="register" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                                    <span data-translate="global.menu.account.register">Register</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true"
+                        has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                        <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm" data-translate="global.menu.admin.main">Administration</span>
+                            <b class="caret"></b>
+                        </span>
+                        </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ui-sref-active="active">
+                                <a ui-sref="user-management" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.userManagement">User management</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="jhi-tracker" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.tracker">User tracker</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.metrics">Metrics</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.health">Health</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.configuration">Configuration</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="audits" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-bell"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.audits">Audits</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="logs" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.logs">Logs</span>
+                                </a>
+                            </li>
+                            <li ng-show="vm.swaggerEnabled" ui-sref-active="active">
+                                <a ui-sref="docs" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-book"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.apidocs">API</span>
+                                </a>
+                            </li>
+                            <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                            <li ng-hide="vm.inProduction">
+                                <a href='/h2-console' target="_tab" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-hdd"></span>&nbsp;
+                                    <span data-translate="global.menu.admin.database">Database</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ui-sref-active="active" uib-dropdown class="dropdown pointer"
+                        ng-controller="JhiLanguageController as languageVm">
+                        <a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
+                        <span>
+                            <span class="glyphicon glyphicon-flag"></span>
+                            <span class="hidden-sm" data-translate="global.menu.language">Language</span>
+                            <b class="caret"></b>
+                        </span>
+                        </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
+                            <li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
+                                <a href="" ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language
+                                    | findLanguageFromKey}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!--
+<li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm" data-translate="global.menu.entities.main">
+                                Entities
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+    </a>
+    <ul class="dropdown-menu" uib-dropdown-menu>
+
+        <li ui-sref-active="active">
+            <a ui-sref="analysis" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span class="hidden-sm" data-translate="global.menu.entities.analysis">Monitoring</span>
+            </a>
+        </li>
+
+        <li ui-sref-active="active">
+            <a ui-sref="source-descriptor" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.sourceDescriptor">Measurement Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="battery-model-source" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.batteryModelSource">Battery Model Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="basic-source" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.basicSource">Basic Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="csv-source" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.csvSource">Csv Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="pv-model-source" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.pvModelSource">Pv Model Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="historian" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.historian">Historian</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="model-parameter" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.modelParameter">Model Parameter</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="flux-period" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.fluxPeriod">Flux Period</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="model-value" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.modelValue">Model Value</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="balance-data" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.balanceData">Balance Data</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="energy-provider" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.energyProvider">Energy Provider</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="energy-site" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.energySite">Energy Site</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="energy-element" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.energyElement">Energy Element</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="abstract-source" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.abstractSource">Abstract Source</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="energy-management-system" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.energyManagementSystem">Energy Management System</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="flux-group" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.fluxGroup">Flux Group</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="flux-topology" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.fluxTopology">Flux Topology</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="instruction" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.instruction">Instruction</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="measured-data" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.measuredData">Measured Data</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="price-data" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.priceData">Price Data</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="months-off-peak" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.monthsOffPeak">Months Off Peak</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="months-high-season" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.monthsHighSeason">Months High Season Season</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="peak-hours" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.peakHours">Peak Hours</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="low-hours" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.lowHours">Low Hours</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="high-hours" ng-click="vm.collapseNavbar()">
+                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                <span data-translate="global.menu.entities.highHours">High Hours</span>
+            </a>
+        </li>
+        &lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;
+    </ul>
+</li>-->
