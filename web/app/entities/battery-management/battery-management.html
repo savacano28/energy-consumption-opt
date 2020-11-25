@@ -1,0 +1,70 @@
+<div ng-cloak>
+    <div class="panel">
+        <h2 class="text-center" data-translate="synergreenApp.battery-management.home.title">BatteryManagement</h2>
+        </br>
+        <div class="container-fluid">
+            <form>
+                <div class="form-group row">
+                    <label class="col-md-offset-1 col-sm-2 col-form-label">Energy Site : </label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                ng-model="vm.siteSelected"
+                                ng-options="siteSelected as siteSelected.name for siteSelected in vm.pilotablesSites"
+                                ng-change="vm.getFluxTopologiesFromSite(vm.siteSelected.id); vm.enableBatteryManagement()"
+                                ng-show="vm.pilotablesSites.length>1">
+                            <option value="">Please select an EnergySite</option>
+                        </select>
+                        <label class="col-form-label"
+                               ng-show="vm.pilotablesSites.length==1">{{vm.pilotablesSites[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.pilotablesSites.length==0">There are no site to
+                            battery-management.</label>
+                    </div>
+                </div>
+                <div ng-show="vm.showConfigurationForm" class="form-group row">
+                    <label class="col-md-offset-1 col-sm-2 col-form-label">Configuration : </label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                ng-model="vm.fluxTopologySelected"
+                                ng-options="fluxTopologySelected as fluxTopologySelected.name for fluxTopologySelected in vm.fluxTopologiesFromSite"
+                                ng-change="vm.getPilotingUnitsFromTopology(vm.fluxTopologySelected.id); vm.enableBatteryManagement()"
+                                ng-show="vm.fluxTopologiesFromSite.length>1">
+                            <option value="">Please select a site configuration</option>
+                        </select>
+                        <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==1">{{vm.fluxTopologiesFromSite[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==0">There are no
+                            configurations related to this Energy Site.</label>
+                    </div>
+                </div>
+                <div ng-show="vm.showBatteryManagementForm" class="form-group row">
+                    <label class="col-md-offset-1 col-sm-2 col-form-label">Storage Unit : </label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                ng-model="vm.pilotingUnitSelected"
+                                ng-options="pilotingUnitSelected as pilotingUnitSelected.name for pilotingUnitSelected in vm.pilotingUnitsFromTopology"
+                                ng-change="vm.enableBatteryManagement()"
+                                ng-show="vm.pilotingUnitsFromTopology.length>1">
+                            <option value="">Please select a Storage Unit for piloting</option>
+                        </select>
+                        <label class="col-form-label" ng-show="vm.pilotingUnitsFromTopology.length==1">{{vm.pilotingUnitsFromTopology[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.pilotingUnitsFromTopology.length==0">There are no
+                            storage
+                            unit to manage.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <button type="submit"
+                                class="btn btn-warning btn-sm pull-right"
+                                ui-sref="battery-management-detail({id: vm.fluxTopologySelected.id})"
+                                ng-disabled="!vm.gotoBatteryManagement">
+                            <span class="glyphicon glyphicon-pawn"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.battery-management"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,140 @@
+<div ng-cloak>
+    <div class="panel col-md-2 sidebar-widget panel-summary-topology">
+        <div class="form-group">
+            <label class="widget-title">{{vm.currentFluxTopology.name}}</label>
+        </br>
+            <div class="container-fluid">
+                </br><label data-translate="synergreenApp.battery-management.pilotables"></label></br>
+                <form class="form-summary-site">
+                <div class="form-group row">
+                    <label class="col-form-label">Energy Site : </label>
+                    <div>
+                        <select class="form-control"
+                                ng-model="vm.siteSelected"
+                                ng-options="siteSelected as siteSelected.name for siteSelected in vm.pilotablesSites"
+                                ng-change="vm.clearGraphics(); vm.getFluxTopologiesFromSite(vm.siteSelected.id); vm.enableBatteryManagement()"
+                                ng-show="vm.pilotablesSites.length>1">
+                            <option value="">Please select an EnergySite</option>
+                        </select>
+                        <label class="col-form-label"
+                               ng-show="vm.pilotablesSites.length==1">{{vm.pilotablesSites[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.pilotablesSites.length==0">There are no site to
+                            battery-management.</label>
+                    </div>
+                </div>
+                <div ng-show="vm.showConfigurationForm" class="form-group row">
+                    <label class="col-form-label">Configuration : </label>
+                    <div>
+                        <select class="form-control"
+                                ng-model="vm.fluxTopologySelected"
+                                ng-options="fluxTopologySelected as fluxTopologySelected.name for fluxTopologySelected in vm.fluxTopologiesFromSite"
+                                ng-change="vm.clearGraphics();vm.getPilotingUnitsFromTopology(vm.fluxTopologySelected.id); vm.enableBatteryManagement()"
+                                ng-show="vm.fluxTopologiesFromSite.length>1">
+                            <option value="">Please select a site configuration</option>
+                        </select>
+                        <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==1">{{vm.fluxTopologiesFromSite[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==0">There are no
+                            configurations related to this Energy Site.</label>
+                    </div>
+                </div>
+                <div ng-show="vm.showBatteryManagementForm" class="form-group row">
+                    <label class="col-form-label">Storage Unit : </label>
+                    <div>
+                        <select class="form-control"
+                                ng-model="vm.pilotingUnitSelected"
+                                ng-options="pilotingUnitSelected as pilotingUnitSelected.name for pilotingUnitSelected in vm.pilotingUnitsFromTopology"
+                                ng-change="vm.clearGraphics(); vm.enableBatteryManagement()"
+                                ng-show="vm.pilotingUnitsFromTopology.length>1">
+                            <option value="">Please select a Storage Unit for piloting</option>
+                        </select>
+                        <label class="col-form-label" ng-show="vm.pilotingUnitsFromTopology.length==1">{{vm.pilotingUnitsFromTopology[0].name}}</label>
+                        <label class="col-form-label" ng-show="vm.pilotingUnitsFromTopology.length==0">There are no
+                            storage
+                            unit to manage.</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit"
+                            class="btn btn-success"
+                            ui-sref="battery-management">Submit
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel col-md-7 ">
+                        <span class="hidden-sm widget-title"
+                              data-translate="synergreenApp.battery-management.battery-management"></span>
+        <table class="jh-table table table-striped">
+            <tr>
+                <th scope="row" data-translate="synergreenApp.battery-management.load"></th>
+                <th>{{vm.stateTopology.priceConsTotal.toFixed(2)}}</th>
+            </tr>
+            <tr>
+                <th scope="row" data-translate="synergreenApp.battery-management.storedEnergy"></th>
+                <th>{{vm.stateTopology.priceCons.EnergyGrid.toFixed(2)}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit"
+                            ng-click="vm.batteryManagementOnDemand()"
+                            class="btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-play pull-right"></span>
+                        <span class="hidden-sm-down"
+                              data-translate="synergreenApp.battery-management.executeBatteryManagement">&nbsp;</span>
+                    </button>
+                </td>
+                <td><label>Dernier commande de battery-management : {{vm.batteryManagementResult.startComputation}}</label></td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <label class="label-title-graphic"></label>
+            <div>
+                <nvd3 data="vm.tonvd3Summary" options="vm.graphicPOWER"
+                      config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+            </div>
+        </div>
+        <div class="text-center">
+            <label class="label-title-graphic"></label>
+            <div>
+                <nvd3 data="vm.tonvd3Battery" options="vm.graphicSOC"
+                      config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel col-md-3 sidebar-widget pull-right text-center consommationSummary">
+        <span class="fa fa-3x fa-line-chart widget-title "/>
+        <span class="hidden-sm widget-title">% Autoconsumption</span>
+        <div>
+            <nvd3 data="vm.tonvd3Pie" options="vm.graphicPie "></nvd3>
+        </div>
+        <div>
+            <nvd3 data="vm.tonvd3Bar" options="vm.graphicBar"></nvd3>
+            <table class="jh-table table table-striped">
+                <span class="hidden-sm widget-title">Invoice</span>
+                <tr>
+                    <th scope="row"> Without Production [€]</th>
+                    <th>{{vm.stateTopology.priceConsTotal.toFixed(2)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">With Production [€]
+                    </th>
+                    <th>{{vm.stateTopology.priceCons.EnergyGrid.toFixed(2)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">With Battery [€]
+                    </th>
+                    <th>{{vm.stateTopology.priceCons.EnergyTotal.toFixed(2)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Optimized Invoice [€]
+                    </th>
+                    <th>{{vm.stateTopology.priceCons.SelfCons.toFixed(2)}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
