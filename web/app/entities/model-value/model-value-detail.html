@@ -1,0 +1,30 @@
+<div>
+    <h2><span data-translate="synergreenApp.modelValue.detail.title">Model Value</span> {{vm.modelValue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="synergreenApp.modelValue.stringValue">String Value</span></dt>
+        <dd>
+            <span>{{vm.modelValue.stringValue}}</span>
+        </dd>
+        <dt><span data-translate="synergreenApp.modelValue.doubleValue">Double Value</span></dt>
+        <dd>
+            <span>{{vm.modelValue.doubleValue}}</span>
+        </dd>
+        <dt><span data-translate="synergreenApp.modelValue.abstractSource">Abstract Source</span></dt>
+        <dd>
+            <a ui-sref="abstract-source-detail({id:vm.modelValue.abstractSource.id})">{{vm.modelValue.abstractSource.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="model-value-detail.edit({id:vm.modelValue.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

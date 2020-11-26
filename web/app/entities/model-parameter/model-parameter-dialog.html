@@ -1,0 +1,69 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;
+        </button>
+        <h4 class="modal-title" id="myModelParameterLabel"
+            data-translate="synergreenApp.modelParameter.home.createOrEditLabel">Create or edit a Model Parameter</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.modelParameter.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   ng-model="vm.modelParameter.id" readonly/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="synergreenApp.modelParameter.label"
+                   for="field_label">Label</label>
+            <input type="text" class="form-control" name="label" id="field_label"
+                   ng-model="vm.modelParameter.label"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="synergreenApp.modelParameter.type"
+                   for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.modelParameter.type" id="field_type">
+                <option value="DOUBLE" data-translate="synergreenApp.ModelParameterType.DOUBLE">DOUBLE</option>
+                <option value="STRING" data-translate="synergreenApp.ModelParameterType.STRING">STRING</option>
+                <option value="URL" data-translate="synergreenApp.ModelParameterType.URL">URL</option>
+                <option value="FILE" data-translate="synergreenApp.ModelParameterType.FILE">FILE</option>
+                <option value="INTEGER" data-translate="synergreenApp.ModelParameterType.INTEGER">INTEGER</option>
+                <option value="BOOLEAN" data-translate="synergreenApp.ModelParameterType.BOOLEAN">BOOLEAN</option>
+                <option value="FLUXPERIOD" data-translate="synergreenApp.ModelParameterType.FLUXPERIOD">FLUXPERIOD
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="synergreenApp.modelParameter.internal" for="field_internal">Internal</label>
+            <select class="form-control" name="internal" ng-model="vm.modelParameter.internal" id="field_internal">
+                <option value="INTERNAL" data-translate="synergreenApp.VisibilityType.INTERNAL">INTERNAL</option>
+                <option value="EXTERNAL" data-translate="synergreenApp.VisibilityType.EXTERNAL">EXTERNAL</option>
+                <option value="ALL" data-translate="synergreenApp.VisibilityType.ALL">ALL</option>
+                <option value="ADMINISTRATOR" data-translate="synergreenApp.VisibilityType.ADMINISTRATOR">
+                    ADMINISTRATOR
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="synergreenApp.modelParameter.abstractSource" for="field_abstractSource">Abstract
+                Source</label>
+            <select class="form-control" id="field_abstractSource" name="abstractSource"
+                    ng-model="vm.modelParameter.abstractSource"
+                    ng-options="abstractSource as abstractSource.id for abstractSource in vm.abstractsources track by abstractSource.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+            data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

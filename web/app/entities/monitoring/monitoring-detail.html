@@ -1,0 +1,224 @@
+<div ng-cloak>
+    <div class="panel col-md-2 sidebar-widget pull-left text-left panel-summary-topology">
+        <div class="form-group">
+            <label class="hidden-sm widget-title">{{vm.currentFluxTopology.name}}</label>
+            <div class="container-fluid ">
+                <label data-translate="entity.action.timeFrame"></label>
+
+                <div class="form-group">
+                    <label class="control-label">Quick Range</label>
+                    <select class="form-control" ng-model="vm.qrange"
+                            ng-change="vm.setDates()" ng-options="range.model for range in vm.quickranges">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Start</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup
+                               ng-model="vm.startDate"
+                               ng-change="vm.startTimeChanged()"
+                               is-open="vm.popupStart.opened"
+                               datepicker-options="vm.dateOptions"
+                               ng-required="true"
+                               close-text="Close"/>
+                        <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        ng-click="vm.openStartDate()">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                    </div>
+                    <div uib-timepicker
+                         ng-model="vm.startTime"
+                         ng-change="vm.startTimeChanged()"
+                         hour-step="1" minute-step="5"
+                         show-spinners="false"
+                         show-meridian="false">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">End</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup
+                               ng-model="vm.endDate" is-open="vm.popupEnd.opened"
+                               ng-change="vm.endTimeChanged()"
+                               datepicker-options="vm.dateOptions"
+                               ng-required="true"
+                               close-text="Close"/>
+                        <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        ng-click="vm.openEndDate()">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                         </span>
+                    </div>
+                    <div uib-timepicker ng-model="vm.endTime"
+                         ng-change="vm.endTimeChanged()"
+                         show-spinners="false"
+                         hour-step="1" minute-step="5"
+                         show-meridian="false">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit"
+                            class="btn btn-success"
+                            ng-click="vm.monitoring()">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid ">
+            <label data-translate="entity.action.components"></label>
+            <div class="form-summary-site row">
+                <label>
+                    <input type="checkbox" ng-model="vm.checkAll"
+                           ng-change="vm.clearGraphics(); vm.checkAllElements(vm.checkAll)">Check all
+                </label>
+                <uib-accordion close-others="false">
+                    <div class="panel-type-element" uib-accordion-group is-open="vm.consumerGroup">
+                        <uib-accordion-heading>
+                            <label class="label-type-element">
+                                    <span class="glyphicon"
+                                          ng-class="{'glyphicon glyphicon-triangle-top': vm.consumerGroup, 'glyphicon glyphicon-triangle-right': !vm.consumerGroup}"></span>Consumer</label>
+                        </uib-accordion-heading>
+                        <div ng-repeat="element in vm.elementsConsumer">
+                            <label class="label-simple">
+                                <input type="checkbox" ng-model="vm.checkedElement[element.id]"
+                                       ng-change="vm.clearGraphics(); vm.checkElement(element.id, vm.checkedElement[element.id])"
+                                       ng-checked="vm.checkAll"/>
+                                {{element.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-type-element" uib-accordion-group is-open="vm.sellProducerGroup">
+                        <uib-accordion-heading>
+                            <label class="label-type-element">
+                                    <span class="glyphicon"
+                                          ng-class="{'glyphicon glyphicon-triangle-top': vm.sellProducerGroup, 'glyphicon glyphicon-triangle-right': !vm.sellProducerGroup}">
+                                    </span>Producer</label>
+                        </uib-accordion-heading>
+                        <div ng-repeat="element in vm.elementsProducer">
+                            <label class="label-simple">
+                                <input type="checkbox" ng-model="vm.checkedElement[element.id]"
+                                       ng-change="vm.clearGraphics(); vm.checkElement(element.id, vm.checkedElement[element.id])"
+                                       ng-checked="vm.checkAll"/>
+                                {{element.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <div ng-show="vm.elementsBattery.length>0" class="panel-type-element" uib-accordion-group
+                         is-open="vm.storageGroup">
+                        <uib-accordion-heading>
+                            <label class="label-type-element">
+                                    <span class="glyphicon"
+                                          ng-class="{'glyphicon glyphicon-triangle-top': vm.storageGroup, 'glyphicon glyphicon-triangle-right': !vm.storageGroup}"></span>Storage</label>
+                        </uib-accordion-heading>
+                        <div ng-repeat="element in vm.elementsBattery">
+                            <label class="label-simple">
+                                <input type="checkbox" ng-model="vm.checkedElement[element.id]"
+                                       ng-change="vm.clearGraphics(); vm.checkElement(element.id, vm.checkedElement[element.id])"
+                                       ng-checked="vm.checkAll"/>
+                                {{element.name}}
+                            </label>
+                        </div>
+                    </div>
+                </uib-accordion>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel col-md-7 ">
+        <div class="text-center">
+            <label class="label-title-graphic" data-translate="entity.action.consumption"></label>
+            <div class="tab-graph">
+                <uib-tabset active="activeJustified1" justified="true">
+                    <uib-tab index="0" heading="Type of Consommation" select="vm.apiConsBySource.refresh()">
+                        <nvd3 data="vm.tonvd3ConsommationBySource" options="vm.graphicConsBySource"
+                              api="vm.apiConsBySource"
+                              config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+                    </uib-tab>
+                    <uib-tab index="1" heading="By Element" select="vm.apiConsByElement.refresh()">
+                        <nvd3 data="vm.tonvd3ConsommationByElement" options="vm.graphicConsByElement"
+                              api="vm.apiConsByElement"
+                              config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <label class="label-title-graphic" data-translate="entity.action.production"></label>
+            <div class="tab-graph">
+                <uib-tabset active="activeJustified2" justified="true">
+                    <uib-tab index="0" heading="Type of Production" select="vm.apiProdBySource.refresh()">
+                        <nvd3 data="vm.tonvd3ProductionBySource" options="vm.graphicProdBySource"
+                              api="vm.apiProdBySource"
+                              config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Production By Element" select="vm.apiProdByElement.refresh()">
+                        <nvd3 data="vm.tonvd3ProductionByElement" options="vm.graphicProdByElement"
+                              api="vm.apiProdByElement"
+                              config="{refreshDataOnly:true, deepWatchDataDepth: 0}"></nvd3>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel col-md-3 sidebar-widget pull-right text-center consommationSummary">
+        <span class="fa fa-3x fa-line-chart widget-title "/>
+        <span class="hidden-sm widget-title">Energy Consumption Cost Repartition</span>
+        <div>
+            <nvd3 data="vm.tonvd3Pie" options="vm.graphicPie "></nvd3>
+        </div>
+        <span class="hidden-sm widget-title">Costs</span>
+        <div>
+            <nvd3 data="vm.tonvd3Bar" options="vm.graphicBar"></nvd3>
+            <table class="jh-table table table-striped">
+                <tr>
+                    <th scope="row"> Purchase Cost (peak passing not included) [€]</th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceConsTotal)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Grid Consumption [kWh]
+                    </th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceCons.EnergyGrid)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Global Consumption [kWh]
+                    </th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceCons.EnergyTotal)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Self-Consumption [%]
+                    </th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceCons.SelfCons)}}</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="productionSummary">
+            <table class="jh-table table table-striped">
+                <tr>
+                    <th scope="row">Production reinjected into the grid [kWh]</th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceProdSell.EnergySell)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Refund [€]</th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceProdSell.Cost)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Global Production [kWh]</th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceProdSell.EnergyTotal)}}</th>
+                </tr>
+                <tr>
+                    <th scope="row">Self-Production [%]</th>
+                    <th>{{vm.limitDecimals(vm.stateTopology.priceProdSell.SelfProd)}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
