@@ -1,0 +1,42 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;
+        </button>
+        <h4 class="modal-title" id="myFluxTopologyLabel"
+            data-translate="synergreenApp.fluxTopology.home.createOrEditLabel">Create or edit a Flux Topology</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="control-label" data-translate="synergreenApp.fluxTopology.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                   ng-model="vm.fluxTopology.name"/>
+        </div>
+       <!-- <div class="custom-file">
+            <input type="file" id="input-image" onchange="angular.element(this).scope().vm.setFile(this.files[0])">
+        </div>-->
+        <div class="custom-file">
+            <label class="control-label col-md-4">Image</label>
+            <input type="file" ngf-select ng-model="vm.file" name="image" ngf-pattern="'image/*'"
+                   ngf-accept="'image/*'" ngf-max-size="10MB" ngf-model-invalid="vm.errorFile">
+            <span ng-show="editForm.image.$error.maxSize" class="help-block text-danger">L'image est trop volumineuse pour l'upload, {{vm.errorFile.size / 1000000|number:1}}Mo, taille maximum autorisée 10 Mo</span>
+            </br>
+            <img class="img-responsive carte" ngf-thumbnail="vm.file" ng-if="vm.file">
+            <span ng-show="vm.fileCtrl.progress >= 0">
+                <uib-progressbar class="progress-striped" value="vm.fileCtrl.progress * 100.0" type="info">{{vm.fileCtrl.progress | number:0}}%</uib-progressbar>
+              </span>
+            <span ng-show="vm.fileCtrl.result" class="help-block">Upload effectué</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+            data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

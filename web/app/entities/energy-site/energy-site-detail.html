@@ -1,0 +1,249 @@
+<div>
+    <h2 align="center"><span data-translate="synergreenApp.energySite.summarySite"></span></h2>
+    <hr/>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="container-fluid">
+        <row>
+            <div class="col-md-offset-2 col-md-8 ">
+                <div class="pull-left">
+                    <button ui-sref="{{vm.previousState}}"
+                            class="btn btn-info">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                        <span data-translate="entity.action.back"></span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <button type="button"
+                            class="btn btn-primary"
+                            ui-sref="energy-site-detail.edit({id:vm.energySite.id})">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                    </button>
+                </div>
+            </div>
+        </row>
+    </div>
+    <hr/>
+    <div class="container-fluid">
+        <div class="col-md-offset-2 col-md-8 ">
+            <div class="panel panel-info">
+                <div class="panel-heading" ng-click="isCollapsedSummary = !isCollapsedSummary">
+                    <span class="hidden-sm widget-title" data-translate="synergreenApp.energySite.summary"></span>
+                </div>
+                <div uib-collapse="isCollapsedSummary">
+                    <div class="panel-body dashboard-widget">
+                        <dt class="small text-primary "><span data-translate="synergreenApp.energySite.name">Name</span>
+                        </dt>
+                        <dd>
+                            <span>{{vm.energySite.name}}</span>
+                        </dd>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info row-site-detail">
+                <div class="panel-heading"><span class="hidden-sm widget-title"
+                                                 data-translate="synergreenApp.energySite.configurations"></span></div>
+                <div ng-repeat="fluxTopology in vm.energySite.fluxTopologies | orderBy:'id'">
+                    <br/>
+                    <form class="form-inline row-site-detail">
+                        <label class="label-title" ng-click="vm.changeStateTopology(fluxTopology.id)">{{fluxTopology.name}}
+                            <span class="glyphicon pull-left"
+                                  ng-class="{'glyphicon glyphicon-triangle-top': vm.openTopology[fluxTopology.id], 'glyphicon glyphicon-triangle-right': !vm.openTopology[fluxTopology.id]}"></span>
+                        </label>
+                        <button type="submit"
+                                class="btn btn-success btn-sm pull-right"
+                                ui-sref="monitoring-detail({id: fluxTopology.id})">
+                            <span class="glyphicon glyphicon-dashboard"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.monitoring"></span>
+                        </button>
+                        <button ng-show="fluxTopology.img" type="submit"
+                                class="btn btn-info btn-sm pull-right"
+                                ui-sref="carte-topology({idTopology:fluxTopology.id})">
+                            <span class="glyphicon glyphicon-globe"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.map"></span>
+                        </button>
+                        <button ng-show="!fluxTopology.img"
+                                uib-popover="Please set an image in Entities/FluxTopology"
+                                popover-trigger="mouseenter"
+                                popover-placement="bottom"
+                                type="submit"
+                                class="btn btn-info btn-sm pull-right">
+                            <span class="glyphicon glyphicon-globe"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.map"></span>
+                        </button>
+                    </form>
+                    <div class="row-site-detail" uib-collapse="!vm.openTopology[fluxTopology.id]">
+                        <form class="form-topology">
+                            <div class="row-facture col-form-label col-form-label-sm label-facture">
+                                <label>Coût d’achat (hors dépassement) mois en cours [€] : </label>
+                                <label ng-if="vm.invoice[fluxTopology.id] !== null">
+                                    {{vm.invoice[fluxTopology.id].amount.toFixed(2)}}</label>
+                                <label ng-if="vm.invoice[fluxTopology.id] === null"
+                                       data-translate="synergreenApp.energySite.loadingPrice"></label>
+                            </div>
+                            <div class="row-facture">
+                                <div class="col-md-6 ">
+                                    <label class="col-form-label col-form-label-sm">Coût total depuis le début
+                                        del'installation [€] : </label>
+                                    <label ng-if="vm.invoice[fluxTopology.id] !== null">
+                                        {{vm.invoice[fluxTopology.id].accAmount.toFixed(2)}}</label>
+                                    <label ng-if="vm.invoice[fluxTopology.id] === null"
+                                           data-translate="synergreenApp.energySite.loadingPrice"></label>
+                                </div>
+                                <div class="col-md-6  invoiceUpdate">
+                                    <label>Last update : </label>
+                                    {{vm.getDateFromSeconds(vm.invoice[fluxTopology.id].lastUpdateInvoice)}}
+                                </div>
+                            </div>
+                            <div ng-show="fluxTopology.optimizations.length!= 0">
+                                <label class="label-elements col-form-label col-form-label-sm">Optimisations effectuées
+                                    : </label> {{fluxTopology.optimizations.length}}
+                                <button type="submit"
+                                        class="btn btn-secondary btn-sm pull-right"
+                                        ui-sref="optimization">
+                                    <span class="glyphicon glyphicon-flash"></span>
+                                    <span class="hidden-sm-down" data-translate="entity.action.optimization"></span>
+                                </button>
+                            </div>
+                            <div>
+                                <label class="label-elements col-form-label col-form-label-sm"
+                                       ng-click="isCollapsed = !isCollapsed">Elements
+                                    <span class="glyphicon pull-left"
+                                          ng-class="{'glyphicon glyphicon-triangle-top': !isCollapsed, 'glyphicon glyphicon-triangle-right': isCollapsed}"></span>
+                                </label>
+                                <div uib-collapse="isCollapsed">
+                                    <div ng-repeat="element in fluxTopology.allElementsChildren | orderBy:'id'">
+                                        <div class="col-md-2">
+                                            <a class="label-element"
+                                               ui-sref="energy-element-detail.edit({id:element.id})">
+                                                {{element.name}}</a>
+                                        </div>
+                                        <button type="submit"
+                                                class="btn btn-warning btn-sm pull-right"
+                                                ng-show="element.type == 'BATTERY'"
+                                                ui-sref="battery-management-detail({id: fluxTopology.id})">
+                                            <span class="glyphicon glyphicon-pawn"></span>
+                                            <span class="hidden-sm-down"
+                                                  data-translate="entity.action.battery-management"></span>
+                                        </button>
+                                        <label class="label label-consumer tag"
+                                               ng-show="element.type == 'CONSUMER'">
+                                            <span class="hidden-sm-down" data-translate="entity.action.consumer"></span>
+                                        </label>
+                                        <label class="label label-producer tag"
+                                               ng-show="element.type == 'PRODUCER'">
+                                            <span class="hidden-sm-down" data-translate="entity.action.producer"></span>
+                                        </label>
+                                        <label class="label label-storage tag"
+                                               ng-show="element.type == 'BATTERY'">
+                                            <span class="hidden-sm-down" data-translate="entity.action.storage"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  <div class="panel-heading" ng-click="isCollapsedConfiguration = !isCollapsedConfiguration" ><b>Configurations</b></div>
+        <div uib-collapse="isCollapsedConfiguration">
+         <div class="panel-body dashboard-widget ">
+          <table class="jh-table table table-striped">
+            <thead>
+            <th class="small text-primary "></span>Topologies</th>
+            &lt;!&ndash;<th class="small text-primary "></span>Total Elements</th>&ndash;&gt;
+            <th class="small text-primary "></span>Actions</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="fluxTopology in vm.energySite.fluxTopologies track by fluxTopology.id">
+                <td><a ui-sref="flux-topology-detail({id:fluxTopology.id})">{{fluxTopology.name}}</a></td>
+                &lt;!&ndash;<td><button class="btn btn-primary"&ndash;&gt;
+                            &lt;!&ndash;ui-sref="summary-elements-topology({idTopology:fluxTopology.id})">&ndash;&gt;
+                    &lt;!&ndash;{{vm.energyElements[fluxTopology.id].Total.length}}&ndash;&gt;
+                &lt;!&ndash;</button></td>&ndash;&gt;
+                <td >
+                    <div class="btn-group flex-btn-group-container pull-left">
+                        <div class="row">
+                            <button type="submit"
+                                    class="btn btn-info btn-sm ">
+                                <span class="glyphicon glyphicon-globe"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.map"></span>
+                            </button>
+                            <button type="button"
+                                    ui-sref="monitoring-detail({id:fluxTopology.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-dashboard"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.monitoring"></span>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+             </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+-->
+<!--
+
+<div class="panel">
+    <uib-accordion close-others="false" >
+        <div uib-accordion-group ng-repeat="energySite in vm.energySites track by energySite.id">
+            <uib-accordion-heading>
+                <form class="form-inline row"> {{energySite.name}}
+                    <span class="glyphicon pull-left" ng-class="{'glyphicon glyphicon-triangle-top': vm.openTopology[fluxTopology.id], 'glyphicon glyphicon-triangle-right': !vm.openTopology[fluxTopology.id]}"></span>
+                    <button type="submit"
+                            class="btn btn-success pull-right"
+                            ui-sref="monitoring-detail({id: vm.topologyRealBySite[energySite.id]})">
+                        <span class="glyphicon glyphicon-dashboard"></span>
+                        <span class="hidden-sm-down" data-translate="entity.action.monitoring"></span>
+                    </button>
+                </form>
+            </uib-accordion-heading>
+            <form>
+                <div class="form-summary-site row">
+                    <label class="col-form-label col-form-label-sm">Facture en cours : </label>  {{energySite.id}}
+                </div>
+                <div class="form-summary-site row">
+                    <label class="col-form-label col-form-label-sm">Total facturé depuis début de l'installation : </label>  {{energySite.id}}
+                </div>
+                <div class="form-summary-site row" >
+                    <label class="col-form-label col-form-label-sm" ng-click="isCollapsed = !isCollapsed">Configurations
+                        <span class="glyphicon pull-left" ng-class="{'glyphicon glyphicon-triangle-top': vm.openTopology[fluxTopology.id], 'glyphicon glyphicon-triangle-right': !vm.openTopology[fluxTopology.id]}"></span>
+                    </label>
+                    <button type="submit"
+                            class="btn btn-primary btn-sm pull-right">
+                        <span class="glyphicon glyphicon-globe"></span>
+                        <span class="hidden-sm-down" data-translate="entity.action.map"></span>
+                    </button>
+                    <div uib-collapse="isCollapsed" ng-repeat="group in vm.groupsSite[energySite.id]">
+                        <span>&emsp;&emsp;{{group.name}}</span>
+                        <label class="label label-warning"
+                               ng-show="group.elementsBattery Management.length != 0"
+                               ui-sref="battery-management-detail({id: group.elementsBattery-Management})">
+                            <span class="glyphicon glyphicon-pawn"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.battery-management"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-summary-site row">
+                    <label class="col-form-label-sm">Optimizations en cours : </label> {{vm.optimizationsSite[energySite.id].length}}
+                    <button type="submit"
+                            class="btn btn-secondary btn-sm pull-right"
+                            ui-sref="optimization">
+                        <span class="glyphicon glyphicon-flash"></span>
+                        <span class="hidden-sm-down" data-translate="entity.action.optimization"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </uib-accordion>
+</div>
+
+-->

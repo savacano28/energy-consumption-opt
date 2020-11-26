@@ -1,0 +1,30 @@
+<div>
+    <h2><span data-translate="synergreenApp.fluxPeriod.detail.title">Flux Period</span> {{vm.fluxPeriod.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="synergreenApp.fluxPeriod.start">Start</span></dt>
+        <dd>
+            <span>{{vm.fluxPeriod.start | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="synergreenApp.fluxPeriod.end">End</span></dt>
+        <dd>
+            <span>{{vm.fluxPeriod.end | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="synergreenApp.fluxPeriod.step">Step</span></dt>
+        <dd>
+            <span>{{vm.fluxPeriod.step}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="flux-period-detail.edit({id:vm.fluxPeriod.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

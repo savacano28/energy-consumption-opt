@@ -1,0 +1,26 @@
+<div>
+    <h2><span
+        data-translate="synergreenApp.energyElement.detail.title">Energy Element : {{vm.energyElement.name}}</span></h2>
+    <hr>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="synergreenApp.energyElement.elementName">Element Name</span></dt>
+        <dd>
+            <span>{{vm.energyElement.name}}</span>
+        </dd>
+        <dt><span data-translate="synergreenApp.energyElement.type">Type</span></dt>
+        <dd>
+            <span
+                data-translate="{{'synergreenApp.ElementType.' + vm.energyElement.type}}">{{vm.energyElement.type}}</span>
+        </dd>
+    </dl>
+
+    <button ng-click="vm.historyBack()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="energy-element-detail.edit({id:vm.energyElement.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

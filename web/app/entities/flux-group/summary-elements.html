@@ -1,0 +1,23 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Summary</h3>
+    </div>
+    <div>
+        <table class="jh-table table table-striped">
+            <thead>
+            <th class="small text-primary "></span>Element</th>
+            <th class="small text-primary "></span>Type</th>
+            <th class="small text-primary "></span>Location</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="element in vm.energyElements track by element.id">
+                <td><a ui-sref="energy-element-detail({id:element.id})">{{element.elementName}}</a></td>
+                <td>{{element.type}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    </div>
+</form>

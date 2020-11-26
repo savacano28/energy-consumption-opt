@@ -1,0 +1,85 @@
+<div ng-cloak>
+    <div class="panel">
+    <h2 data-translate="synergreenApp.energyElement.home.title">Energy Elements</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="pull-left">
+                <button ng-click="vm.historyBack()"
+                        class="btn btn-info">
+                    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span
+                    data-translate="entity.action.back"> Back</span>
+                </button>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="energy-element.new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down" data-translate="synergreenApp.energyElement.home.createLabel">
+                        Create new Energy Element
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-5 no-padding-right col-sm-offset-3 ">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                               placeholder="{{ 'synergreenApp.energyElement.home.search' | translate }}">
+                        <span class="input-group-btn width-min">
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+            <tr>
+                <th><span data-translate="synergreenApp.energyElement.elementName">Element Name</span></th>
+                <th><span data-translate="synergreenApp.energyElement.type">Type</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="energyElement in vm.energyElements track by energyElement.id">
+                <td><a ui-sref="energy-element-detail({id:energyElement.id})">{{energyElement.name}}</a></td>
+                <td data-translate="{{'synergreenApp.ElementType.' + energyElement.type}}">{{energyElement.type}}</td>
+                <td class="text-left">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="energy-element-detail({id:energyElement.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="energy-element.edit({id:energyElement.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="energy-element.delete({id:energyElement.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

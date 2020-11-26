@@ -1,0 +1,13 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Carte</h3>
+    </div>
+    <div>
+        <!--<img class="img-responsive carte" ng-src="{{vm.currentFluxTopology.img}}"/>-->
+        <img class="img-responsive carte" ng-src="upload/{{vm.currentFluxTopology.img}}"/>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    </div>
+</form>

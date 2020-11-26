@@ -1,0 +1,21 @@
+<div>
+    <h2>{{vm.fluxNode.name}}</span> </h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="synergreenApp.fluxNode.type">Type</span></dt>
+        <dd>
+            <span data-translate="{{'synergreenApp.ElementType.' + vm.fluxNode.type}}">{{vm.fluxNode.type}}</span>
+        </dd>
+    </dl>
+
+    <button ng-click="vm.historyBack()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="flux-node-detail.edit({id:vm.fluxNode.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
