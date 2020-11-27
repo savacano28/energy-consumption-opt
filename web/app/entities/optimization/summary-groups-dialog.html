@@ -1,0 +1,115 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;
+        </button>
+        <h3 class="modal-title" id="modal-title">Summary</h3>
+    </div>
+    <div>
+        <jhi-alert></jhi-alert>
+        <div class="container-fluid">
+            <div class="row">
+                <br/>
+                <div class="col-xs-4 ">
+                    <button class="btn btn-primary" ui-sref="flux-group.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="hidden-xs-down" data-translate="synergreenApp.fluxGroup.home.createLabel">
+                        Create new Group
+                    </span>
+                    </button>
+                </div>
+                <div class="col-xs-5  col-sm-offset-3 ">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group pull-right">
+                            <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                                   placeholder="{{ 'synergreenApp.fluxGroup.home.search' | translate }}">
+                            <span class="input-group-btn width-min">
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="table-responsive">
+            <table class="jh-table table table-striped">
+                <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="synergreenApp.fluxGroup.name">Name</span></th>
+                    <th><span data-translate="synergreenApp.fluxGroup.nombreElements">Number of Elements</span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="fluxGroup in vm.fluxGroups track by fluxGroup.id">
+                    <td><a ui-sref="flux-group-detail({id:fluxGroup.id})">{{fluxGroup.id}}</a></td>
+                    <td>{{fluxGroup.name}}</td>
+                    <td>
+                        <button class="btn btn-primary"
+                                ui-sref="summary-elements-group({idGroup:fluxGroup.id})">
+                            {{fluxGroup.energyElements.length}}
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button"
+                                class="btn btn-success btn-sm"
+                                ng-click="vm.addGroup(fluxGroup.id)"
+                                ng-show="!vm.inTopology(fluxGroup.id)">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.add"></span>
+                        </button>
+                        <button type="button"
+                                class="btn btn-basic btn-sm"
+                                ng-click="vm.deleteGroup(fluxGroup.id)"
+                                ng-show="vm.inTopology(fluxGroup.id)">
+                            <span class="glyphicon glyphicon-erase"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.erase"></span>
+                        </button>
+                    </td>
+                    <td class="text-left">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="button"
+                                    ui-sref="flux-group-detail({id:fluxGroup.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="button"
+                                    ui-sref="flux-group.edit({id:fluxGroup.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="button"
+                                    ng-click="vm.cloneGroup(fluxGroup.id)"
+                                    class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-duplicate"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.clone"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit"
+                ng-click="vm.save()"
+                class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>
+            <span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
+

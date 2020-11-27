@@ -1,0 +1,62 @@
+<br>
+<h2 class="text-center" data-translate="synergreenApp.optimization.home.title">Optimization</h2>
+</br>
+<jhi-alert></jhi-alert>
+<br class="container-fluid">
+<form>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit"
+                    class="btn btn-info btn-sm pull-right">
+                <span class="glyphicon glyphicon-plus"></span>
+                <span class="hidden-sm-down">New Optimization</span>
+            </button>
+        </div>
+    </div>
+</form>
+</br>
+<form>
+    <div class="form-group row">
+        <label class="col-md-offset-1 col-sm-1 col-form-label">Energy Site:</label>
+        <div class="col-sm-8">
+            <select class="form-control"
+                    ng-model="vm.siteSelected"
+                    ng-options="siteSelected as siteSelected.name for siteSelected in vm.energySites"
+                    ng-change="vm.getFluxTopologiesFromSite(vm.siteSelected.id); vm.enableOptimization()"
+                    ng-show="vm.energySites.length>1">
+                <option value="">Please select an EnergySite</option>
+            </select>
+            <label class="col-form-label" ng-show="vm.energySites.length==1">{{vm.energySites[0].name}}</label>
+        </div>
+    </div>
+    <div ng-show="vm.showConfigurationForm" class="form-group row">
+        <label class="col-md-offset-1 col-sm-1 col-form-label">Configuration:</label>
+        <div class="col-sm-8">
+            <select class="form-control"
+                    ng-model="vm.fluxTopologySelected"
+                    ng-options="fluxTopologySelected as fluxTopologySelected.name for fluxTopologySelected in vm.fluxTopologiesFromSite"
+                    ng-change="vm.enableOptimization()"
+                    ng-show="vm.fluxTopologiesFromSite.length>1">
+                <option value="">Please select a site configuration for Optimization</option>
+            </select>
+            <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==1">{{vm.fluxTopologiesFromSite[0].name}}</label>
+            <label class="col-form-label" ng-show="vm.fluxTopologiesFromSite.length==0">There are no optimizations
+                related to this Energy Site.</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10">
+            <button type="submit"
+                    class="btn btn-success btn-sm pull-right"
+                    ui-sref="optimization-detail({id: vm.fluxTopologySelected.id})"
+                    ng-disabled="!vm.gotoOptimization">
+                <span class="glyphicon glyphicon-dashboard"></span>
+                <span class="hidden-sm-down" data-translate="entity.action.optimization"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+</div>
+</div>
+

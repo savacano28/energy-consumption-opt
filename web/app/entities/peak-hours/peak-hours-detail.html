@@ -1,0 +1,22 @@
+<div>
+    <h2><span data-translate="synergreenApp.peakHours.detail.title">Peak Hours</span> {{vm.peakHours.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="synergreenApp.peakHours.energyProvider">Energy Provider</span></dt>
+        <dd>
+            <a ui-sref="energy-provider-detail({id:vm.peakHours.energyProvider.id})">{{vm.peakHours.energyProvider.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="peak-hours-detail.edit({id:vm.peakHours.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
